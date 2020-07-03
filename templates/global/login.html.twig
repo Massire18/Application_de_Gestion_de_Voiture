@@ -1,0 +1,24 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Login{% endblock %}
+
+{% block monTitre %}Login{% endblock %}
+{% block body %}
+
+{% if error %}
+   <div class="alert alert-danger">
+     Le login et le mot de passe ne sont pas bon!
+   </div>
+{% endif %}
+    <form action="{{path('login')}}" method="post">
+       <div class="form-group">
+           <label>Login : </label>
+           <input type="text" required name="_username" class="form-control" value="{{lastUserName}}">
+       </div>
+       <div class="form-group">
+           <label>Password : </label>
+           <input type="Password" required name="_password" class="form-control">
+       </div>
+       <input type="submit" class="btn btn-primary" value="s'identifier">
+    </form>
+{% endblock %}
